@@ -1,15 +1,72 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="~/css/site.css">
+
     <title>@ViewData["Title"] - Store</title>
 </head>
-<body>
+<body onload="enterAccount()">
     <header>
+        <div class="log-in-window">
+            <p>Log In/Sign Up</p>
+            <form onsubmit="logIn()">
+                <p>E-mail:</p>
+                <input type="email" name="email" required>
+
+                <p>Password:</p>
+                <input class="password-field" type="password" name="pass" required>
+                <br>
+                <input class="log-in-button" type="submit" value="Log In" name="log-in">
+            </form>
+            <br>
+            <p class="create-account-question">
+                Don't have an account?
+                <button class="create-account-button" onclick="createAccount()">
+                    Create it!
+                </button>
+            </p>
+        </div>
+
+        <div class="menu">
+            <div class="menu-list">
+                <ul>
+                    <li>Catalog</li>
+                    <li>Giveaways</li>
+                    <li>Contacts</li>
+                    <li class="log-in" onclick="logInWindow()">
+                        Log In
+                    </li>
+                    <ul class="log-in account-menu" onmouseover="showAccountMenu()" onmouseout="hideAccountMenu()">
+                        <li class="account">Account</li>
+                        <li class="exit-account" onclick="exitAccount()">
+                            Logout
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
     </header>
-    
+
     @RenderBody()
 
-    <footer>
+    <footer class="footer">
+        <div class="main-contacts">
+            <p>Contacts:</p>
+            <a href="tel: 0">+1-1324-7586-8798</a> <br>
+            <a href="tel: 0">+39-1324-7586-8798</a> <br>
+            <br>
+            <br>
+            <a href="mailto: 0?subject=Feedback>">support@store.com</a>
+        </div>
+
+        <div class="logo">
+            STORE
+        </div>
     </footer>
+
+    <script src="~/js/site.js"></script>
 </body>
 </html>

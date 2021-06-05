@@ -1,1 +1,354 @@
-﻿
+﻿@font-face {
+    font-family: 'Calibri Light';
+    src: local('Calibri Light'), url(../fonts/calibri-light.ttf);
+    font-family: 'Coffin Stone';
+    src: local('Coffin Stone'), url(../fonts/coffin-stone.otf);
+}
+
+* {
+    font-family: 'Calibri Light';
+    font-size: 1.3vw;
+}
+
+body {
+    margin: 0;
+    background-color: rgba(229, 255, 0, 0.027);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+td {
+    padding: 0;
+}
+
+ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+input {
+    min-width: 40%;
+}
+
+a {
+    text-decoration: none;
+}
+
+a, img, button, video {
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 5vh;
+}
+
+h2 {
+    font-size: 4vh;
+}
+
+footer * {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.flow-left {
+    float: left;
+}
+
+.menu {
+    position: sticky;
+    top: 0;
+    z-index: 0;
+    background-color: rgb(207, 207, 207);
+    border-radius: 0 0 10px 10px;
+}
+
+.menu-list ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.menu-list li {
+    display: inline-block;
+    padding: .6% 2%;
+    border-radius: 10px;
+}
+
+.menu-list * {
+    color: darkmagenta;
+    font-weight: bold;
+}
+
+.menu-list li:hover {
+    background-color: rgba(30, 30, 30, 0.2);
+}
+
+.log-in {
+    position: absolute;
+    right: .5vw;
+    cursor: pointer;
+}
+
+.log-in-window {
+    display: none;
+    background-color: white;
+    margin: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    padding: 1% 5%;
+    text-align: center;
+    width: 30vw;
+    max-height: 60vh;
+    overflow: auto;
+    border-radius: 10px;
+    box-shadow: .1vh .1vh .5vh .1vh black;
+}
+
+    .log-in-window > p {
+        margin-bottom: 10%;
+        background-color: rgba(100, 100, 100, 0.1);
+    }
+
+.log-in-button {
+    margin-top: 8%;
+    border: 0;
+    padding: 2%;
+    cursor: pointer;
+    font-size: 3.2vh;
+    border-radius: 10px;
+    background-color: rgba(100, 100, 100, 0.1);
+    box-shadow: .1vh .1vh .5vh .1vh darkgray;
+}
+
+.menu-list .account {
+}
+
+.create-account-button {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+}
+
+.create-account-question {
+    color: darkgray;
+}
+
+.menu-list .account-menu {
+    display: none;
+    padding: .55% 1% 0 0;
+}
+
+.account-menu li {
+    display: block;
+    padding-bottom: 8%;
+}
+
+.account {
+}
+
+.menu-list .exit-account {
+    display: none;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: .1vh .1vh .5vh .1vh darkgray;
+    padding: 10%;
+}
+
+.main {
+    width: 80vw;
+    margin: 0 auto;
+    padding: 0 2px 0;
+}
+
+.cover-and-subinfo {
+    width: 25%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    overflow: auto;
+}
+
+@media only screen and (max-width: 1080px) {
+    .main {
+        margin: 0;
+        width: auto;
+    }
+
+    .cover-and-subinfo {
+        width: 17%;
+    }
+}
+
+.cover {
+    width: 100%;
+}
+
+.subinfo > * {
+    margin: 5% auto 0 auto;
+}
+
+.additional-info {
+}
+
+    .additional-info td:first-child {
+        vertical-align: top;
+        text-align: end;
+    }
+
+.reception {
+}
+
+.reviews tr:first-of-type td {
+    text-align: center;
+}
+
+.game-name {
+    margin: 0;
+}
+
+.description {
+    text-align: justify;
+}
+
+.gallery {
+    display: flex;
+    overflow: auto;
+    height: 10vw;
+}
+
+    .gallery > * {
+        padding: 0 1%;
+    }
+
+.overlay {
+    position: fixed;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.full-media {
+    max-width: 80%;
+    max-height: 80%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    box-shadow: .1vh .1vh .5vh .1vh black;
+}
+
+.close-overlay {
+    position: absolute;
+    top: 3vw;
+    right: 5vw;
+    color: white;
+    font-size: 2vw;
+    cursor: pointer;
+}
+
+.sys-requirements {
+}
+
+    .sys-requirements td:first-child {
+        text-align: end;
+    }
+
+.reviews {
+    max-height: 32vw;
+    border: .2vw solid rgb(207, 207, 207);
+    margin: 3%;
+    overflow: auto;
+    border-radius: 10px;
+}
+
+.tabs {
+    padding-left: 0;
+    margin: 0;
+}
+
+.tab {
+    padding: 2% 2%;
+    display: inline-block;
+}
+
+    .tab:hover {
+        background-color: rgba(30, 30, 30, 0.2);
+        cursor: pointer;
+    }
+
+.users-reviews {
+}
+
+.user-review {
+    width: 90%;
+    margin: 3% auto;
+    border: .15px solid rgba(60, 60, 60, 0.4);
+    border-radius: 10px;
+    padding: 1%;
+}
+
+.comments {
+    display: none;
+}
+
+.comment {
+    width: 90%;
+    margin: 3% auto;
+    border: .15px solid rgba(60, 60, 60, 0.4);
+    border-radius: 10px;
+    padding: 1%;
+}
+
+.buy-button {
+    display: block;
+    margin: 5% auto;
+    min-width: 14vw;
+    padding: 2%;
+    border: 0;
+    text-align: center;
+    background-color: rgba(100, 100, 100, 0.1);
+    border-radius: 10px;
+}
+
+.footer {
+    display: flex;
+    background-color: black;
+    color: white;
+    padding: 1% 5% 2%;
+}
+
+.main-contacts {
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 10%;
+}
+
+    .main-contacts a {
+        text-decoration: underline;
+    }
+
+.logo {
+    font-family: 'Coffin Stone';
+    font-size: 5vw;
+    margin: auto 23% auto auto;
+    color: white;
+    text-decoration: none;
+}
+
+.return {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    top: 0;
+    left: 0;
+    font-size: 5vh;
+    border-radius: 0 10px 10px 10px;
+    box-shadow: .1vh .1vh .5vh .1vh darkgray;
+}
