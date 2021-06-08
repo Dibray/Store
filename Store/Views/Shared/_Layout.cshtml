@@ -8,43 +8,17 @@
 
     <title>@ViewData["Title"] - Store</title>
 </head>
-<body onload="enterAccount()">
+<body>
     <header>
-        <div class="log-in-window">
-            <p>Log In/Sign Up</p>
-            <form onsubmit="logIn()">
-                <p>E-mail:</p>
-                <input type="email" name="email" required>
-
-                <p>Password:</p>
-                <input class="password-field" type="password" name="pass" required>
-                <br>
-                <input class="log-in-button" type="submit" value="Log In" name="log-in">
-            </form>
-            <br>
-            <p class="create-account-question">
-                Don't have an account?
-                <button class="create-account-button" onclick="createAccount()">
-                    Create it!
-                </button>
-            </p>
-        </div>
-
         <div class="menu">
             <div class="menu-list">
                 <ul>
                     <li>Catalog</li>
                     <li>Giveaways</li>
                     <li>Contacts</li>
-                    <li class="log-in" onclick="logInWindow()">
-                        Log In
+                    <li>
+                        <partial name="_LoginPartial" />
                     </li>
-                    <ul class="log-in account-menu" onmouseover="showAccountMenu()" onmouseout="hideAccountMenu()">
-                        <li class="account">Account</li>
-                        <li class="exit-account" onclick="exitAccount()">
-                            Logout
-                        </li>
-                    </ul>
                 </ul>
             </div>
         </div>
@@ -68,5 +42,6 @@
     </footer>
 
     <script src="~/js/site.js"></script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

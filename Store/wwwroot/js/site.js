@@ -1,4 +1,14 @@
-﻿function zoomMedia(itemNumber) {
+﻿// Layout
+
+function showAccountMenu() {
+	document.querySelector(".exit-account").style.display = 'block';
+}
+
+function hideAccountMenu() {
+	document.querySelector(".exit-account").style.display = 'none';
+}
+
+function zoomMedia(itemNumber) {
 	let items = document.querySelectorAll('.gallery > *');
 	let media = items[itemNumber];
 
@@ -41,61 +51,6 @@ function switchTab(tabNumber) {
 			alert("unknown tab");
 			break;
 	}
-}
-
-function logInWindow() {
-	document.body.insertAdjacentHTML("afterbegin",
-		`<div class="overlay"> <span class="close-overlay">X</span> </div>`
-	);
-
-	document.querySelector(".log-in-window").style.display = 'block';
-
-	let overlay = document.querySelector('div[class="overlay"]');
-
-	overlay.onclick = () => {
-		overlay.remove();
-		document.querySelector(".log-in-window").style.display = 'none';
-	}
-}
-
-function createAccount() {
-	document.querySelector(".create-account-question").remove();
-
-	document.querySelector(".password-field").insertAdjacentHTML("afterend",
-		`<p>Re-enter password:</p>
-	<input class="password-field" type="password" name="re-pass" required>`
-	);
-
-	document.querySelector(".log-in-button").value = 'Sign In';
-}
-
-function logIn() {
-	localStorage.setItem('logged-in', 'true');
-	document.location.href = document.location.href;
-}
-
-function enterAccount() {
-	if (localStorage.getItem('logged-in') === 'true') {
-		document.querySelector(".log-in").style.display = 'none';
-		document.querySelector(".account-menu").style.display = 'inline-block';
-	}
-}
-
-function showAccountMenu() {
-	document.querySelector(".exit-account").style.display = 'block';
-}
-
-function hideAccountMenu() {
-	document.querySelector(".exit-account").style.display = 'none';
-}
-
-function exitAccount() {
-	localStorage.setItem('logged-in', 'false');
-	document.location.href = document.location.href;
-}
-
-function returnToPage() {
-	document.location.href = document.referrer;
 }
 
 // Buy page

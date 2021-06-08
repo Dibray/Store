@@ -4,12 +4,18 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-        <button type="submit">Exit</button>
-    </form>
+    <ul class="account-menu" onmouseover="showAccountMenu()" onmouseout="hideAccountMenu()">
+        <li class="account">
+            <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Account</a>
+        </li>
+        <li class="exit-account">
+            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit">Logout</button>
+            </form>
+        </li>
+    </ul>
 }
 else
 {
-    <a asp-area="Identity" asp-page="/Account/Register">Register</a>
     <a asp-area="Identity" asp-page="/Account/Login">Login</a>
 }

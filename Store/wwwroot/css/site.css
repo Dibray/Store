@@ -77,6 +77,12 @@ footer * {
     border-radius: 10px;
 }
 
+.menu-list > ul > li:nth-child(4) {
+    position: absolute;
+    right: .5vw;
+    cursor: pointer;
+}
+
 .menu-list * {
     color: darkmagenta;
     font-weight: bold;
@@ -84,12 +90,6 @@ footer * {
 
 .menu-list li:hover {
     background-color: rgba(30, 30, 30, 0.2);
-}
-
-.log-in {
-    position: absolute;
-    right: .5vw;
-    cursor: pointer;
 }
 
 .log-in-window {
@@ -111,10 +111,10 @@ footer * {
     box-shadow: .1vh .1vh .5vh .1vh black;
 }
 
-    .log-in-window > p {
-        margin-bottom: 10%;
-        background-color: rgba(100, 100, 100, 0.1);
-    }
+.log-in-window > p {
+    margin-bottom: 10%;
+    background-color: rgba(100, 100, 100, 0.1);
+}
 
 .log-in-button {
     margin-top: 8%;
@@ -127,9 +127,6 @@ footer * {
     box-shadow: .1vh .1vh .5vh .1vh darkgray;
 }
 
-.menu-list .account {
-}
-
 .create-account-button {
     background-color: rgba(0, 0, 0, 0);
     border: 0;
@@ -139,25 +136,18 @@ footer * {
     color: darkgray;
 }
 
-.menu-list .account-menu {
-    display: none;
-    padding: .55% 1% 0 0;
+.menu-list {
+    padding: .35% .35%;
 }
 
-.account-menu li {
+.account-menu > .account {
     display: block;
-    padding-bottom: 8%;
 }
 
-.account {
-}
-
-.menu-list .exit-account {
+.account-menu > li:nth-child(n+2) {
     display: none;
-    background-color: white;
     border-radius: 10px;
-    box-shadow: .1vh .1vh .5vh .1vh darkgray;
-    padding: 10%;
+    margin-top: 8%;
 }
 
 .main {
@@ -192,15 +182,9 @@ footer * {
     margin: 5% auto 0 auto;
 }
 
-.additional-info {
-}
-
-    .additional-info td:first-child {
-        vertical-align: top;
-        text-align: end;
-    }
-
-.reception {
+.additional-info td:first-child {
+    vertical-align: top;
+    text-align: end;
 }
 
 .reviews tr:first-of-type td {
@@ -221,9 +205,9 @@ footer * {
     height: 10vw;
 }
 
-    .gallery > * {
-        padding: 0 1%;
-    }
+.gallery > * {
+    padding: 0 1%;
+}
 
 .overlay {
     position: fixed;
@@ -254,12 +238,9 @@ footer * {
     cursor: pointer;
 }
 
-.sys-requirements {
+.sys-requirements td:first-child {
+    text-align: end;
 }
-
-    .sys-requirements td:first-child {
-        text-align: end;
-    }
 
 .reviews {
     max-height: 32vw;
@@ -279,12 +260,9 @@ footer * {
     display: inline-block;
 }
 
-    .tab:hover {
-        background-color: rgba(30, 30, 30, 0.2);
-        cursor: pointer;
-    }
-
-.users-reviews {
+.tab:hover {
+    background-color: rgba(30, 30, 30, 0.2);
+    cursor: pointer;
 }
 
 .user-review {
@@ -330,9 +308,9 @@ footer * {
     margin-left: 10%;
 }
 
-    .main-contacts a {
-        text-decoration: underline;
-    }
+.main-contacts a {
+    text-decoration: underline;
+}
 
 .logo {
     font-family: 'Coffin Stone';
