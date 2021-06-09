@@ -1,10 +1,17 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <partial name="_ConnectedSources" />
 
-    <link rel="stylesheet" href="~/css/site.css">
+    <style>
+        .store-logo {
+            margin: auto 23% auto auto;
+        }
+
+        .store-logo a {
+            color: white;
+        }
+    </style>
 
     <title>@ViewData["Title"] - Store</title>
 </head>
@@ -36,8 +43,8 @@
             <a href="mailto: 0?subject=Feedback>">support@store.com</a>
         </div>
 
-        <div class="logo">
-            STORE
+        <div class="store-logo logo">
+            <a asp-area="" asp-page="/Home/Index">STORE</a>
         </div>
     </footer>
 
