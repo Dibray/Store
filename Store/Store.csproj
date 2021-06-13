@@ -6,6 +6,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\Users\ASP\**" />
+    <Content Remove="Models\Users\ASP\**" />
+    <EmbeddedResource Remove="Models\Users\ASP\**" />
+    <None Remove="Models\Users\ASP\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\Users\AspNetRoleClaims.cs" />
+    <Compile Remove="Models\Users\AspNetRoles.cs" />
+    <Compile Remove="Models\Users\AspNetUserClaims.cs" />
+    <Compile Remove="Models\Users\AspNetUserLogins.cs" />
+    <Compile Remove="Models\Users\AspNetUserRoles.cs" />
+    <Compile Remove="Models\Users\AspNetUserTokens.cs" />
     <Compile Remove="StoreContext.cs" />
   </ItemGroup>
 

@@ -10,13 +10,13 @@ namespace Store.Data
         {
         }
 
-        public virtual DbSet<AspNetRoleClaims> AspNetRoleClaims { get; set; }
-        public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
-        public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
-        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
-        public virtual DbSet<AspNetUserRoles> AspNetUserRoles { get; set; }
-        public virtual DbSet<AspNetUserTokens> AspNetUserTokens { get; set; }
-        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+        //public virtual DbSet<AspNetRoleClaims> AspNetRoleClaims { get; set; }
+        //public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
+        //public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
+        //public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
+        //public virtual DbSet<AspNetUserRoles> AspNetUserRoles { get; set; }
+        //public virtual DbSet<AspNetUserTokens> AspNetUserTokens { get; set; }
+        //public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<CheckEntry> CheckEntry { get; set; }
         public virtual DbSet<Checks> Checks { get; set; }
         public virtual DbSet<CpuclockFreqs> CpuclockFreqs { get; set; }
@@ -58,7 +58,7 @@ namespace Store.Data
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
+        {/*
             modelBuilder.Entity<AspNetRoleClaims>(entity =>
             {
                 entity.HasIndex(e => e.RoleId);
@@ -124,7 +124,7 @@ namespace Store.Data
                     .WithMany(p => p.AspNetUserRoles)
                     .HasForeignKey(d => d.UserId);
             });
-
+            
             modelBuilder.Entity<AspNetUserTokens>(entity =>
             {
                 entity.HasKey(e => new { e.UserId, e.LoginProvider, e.Name });
@@ -137,7 +137,7 @@ namespace Store.Data
                     .WithMany(p => p.AspNetUserTokens)
                     .HasForeignKey(d => d.UserId);
             });
-
+            
             modelBuilder.Entity<AspNetUsers>(entity =>
             {
                 entity.HasIndex(e => e.Email)
@@ -164,7 +164,7 @@ namespace Store.Data
 
                 entity.Property(e => e.UserName).HasMaxLength(256);
             });
-
+            */
             modelBuilder.Entity<CheckEntry>(entity =>
             {
                 entity.HasNoKey();
@@ -209,7 +209,7 @@ namespace Store.Data
                     .HasColumnName("UserID");
 
                 entity.HasOne(d => d.User)
-                    .WithMany(p => p.Checks)
+                    .WithMany(/*p => p.Checks*/)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Checks_UserID");
@@ -813,7 +813,7 @@ namespace Store.Data
                     .HasConstraintName("FK_UsersReviews_GameID");
 
                 entity.HasOne(d => d.User)
-                    .WithMany(p => p.UsersReviews)
+                    .WithMany(/*p => p.UsersReviews*/)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_UsersReviews_UserID");
@@ -847,6 +847,8 @@ namespace Store.Data
             });
 
             OnModelCreatingPartial(modelBuilder);
+
+            base.OnModelCreating(modelBuilder);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

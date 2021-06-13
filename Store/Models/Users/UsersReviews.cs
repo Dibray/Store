@@ -16,6 +16,6 @@ namespace Store
         public int GameId { get; set; }
 
         public virtual Games Game { get; set; }
-        public virtual AspNetUsers User { get; set; }
+        public virtual Microsoft.AspNetCore.Identity.IdentityUser User { get; set; }
     }
 }

@@ -14,6 +14,6 @@ namespace Store
         public decimal? GeneralSum { get; set; }
         public string UserId { get; set; }
 
-        public virtual AspNetUsers User { get; set; }
+        public virtual Microsoft.AspNetCore.Identity.IdentityUser User { get; set; }
     }
 }
