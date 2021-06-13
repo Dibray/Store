@@ -1,11 +1,18 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace Store.Data
+// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
+// If you have enabled NRTs for your project, then un-comment the following line:
+// #nullable disable
+
+namespace Store
 {
-    public partial class ApplicationDbContext : IdentityDbContext
+    public partial class StoreContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public StoreContext()
+        {
+        }
+
+        public StoreContext(DbContextOptions<StoreContext> options)
             : base(options)
         {
         }
