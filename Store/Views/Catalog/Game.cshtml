@@ -1,0 +1,184 @@
+﻿@model GameViewModel
+
+@{
+    ViewData["Title"] = Model.Title;
+
+    char currency = '$';
+}
+
+@functions{
+    public void ShowList(ICollection<string> list)
+    {
+        foreach (var x in list)
+        {
+            @: @x
+        }
+    }
+
+    public void ShowGenres()
+    {
+        ShowList(Model.Genres);
+    }
+
+    public void ShowPlatforms()
+    {
+        ShowList(Model.Platforms);
+    }
+
+    public void ShowDirectXVersions()
+    {
+        ShowList(Model.DirectXVersions);
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="@Model.FaviconPath" type="image/png">
+
+    <style>
+        .description ul {
+            padding-left: 20vw;
+            list-style-type: disc;
+        }
+    </style>
+
+    <title>@Model.Title</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="cover-and-subinfo flow-left">
+            <img src="@Model.CoverPath" title="@Model.Title Cover" alt="@Model.Title Cover" class="cover">
+
+            <div class="subinfo">
+                <table class="additional-info">
+                    <tr>
+                        <td>Genre:</td>
+                        <td>@{ ShowGenres(); }</td>
+                    </tr>
+                    <tr>
+                        <td>Release date:</td>
+                        <td>@Model.ReleaseDate.ToShortDateString()</td>
+                    </tr>
+                    <tr>
+                        <td>Platform:</td>
+                        <td>@{ ShowPlatforms(); }</td>
+                    </tr>
+                </table>
+
+                <table class="reception">
+                    <caption>Reception:</caption>
+                    @foreach (var r in Model.Reception)
+                    {
+                        <tr>
+                            <td>@r.Name</td>
+                            <td>@r.Note/100</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+
+        <h1 class="game-name">@Model.Title</h1>
+        <div class="description">
+            @Html.Raw(Model.Description)
+        </div>
+
+        <br>
+
+        <div class="gallery-box">
+            <h2>Gallery:</h2>
+            <div class="gallery">
+                @{
+                    int i = 0;
+
+                    foreach (var p in Model.GalleryVideosPaths) // Show videos
+                    {
+                        <video src="@p" onclick="zoomMedia(@i)"></video>
+                        ++i;
+                    }
+
+                    foreach (var p in Model.GalleryImagesPaths) // Show images
+                    {
+                        <img src="@p" alt="@Model.Title Photo" title="@Model.Title Photo" onclick="zoomMedia(@i)">
+                        ++i;
+                    }
+                }
+            </div>
+        </div>
+
+        <div class="system-requirements-box">
+            <h2>System requirements:</h2>
+            <table class="sys-requirements">
+                <tr>
+                    <td>OS: </td>
+                    <td>@{ ShowPlatforms(); }</td>
+                </tr>
+                <tr>
+                    <td>Processor: </td>
+                    <td>
+                        @foreach (var c in Model.Cpus)
+                        {
+                            @:@c.Manufacturer @c.Model @c.Series @c.FrequencyMgh MGh/
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>RAM: </td>
+                    <td>
+                        @foreach (var s in Model.RamSizes)
+                        {
+                            @:@s MB
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>Graphics: </td>
+                    <td>
+                        @foreach (var g in Model.Gpus)
+                        {
+                            @:@g.Manufacturer @g.Model @g.Series @g.VramMb MB @g.FrequencyMgh
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>DirectX®: </td>
+                    <td>@{ ShowDirectXVersions(); }</td>
+                </tr>
+                <tr>
+                    <td>Hard Drive: </td>
+                    <td>
+                        @foreach (var s in Model.FreeSpaceMb)
+                        {
+                            @: @s MB
+                        }
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="reviews-box">
+            <h2>Reviews:</h2>
+            <div class="reviews">
+                <ul class="tabs">
+                    <li class="tab" onclick="switchTab(1)">Users reviews (@Model.UserReviewsContents.Count)</li>
+                </ul>
+
+                <ul class="users-reviews">
+                    @foreach (var r in Model.UserReviewsContents)
+                    {
+                        <li class="user-review">@r</li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <button class="buy-button" onclick="addOrder()">
+            <a href="../buy-page.html">Buy @Model.BasePrice@currency</a>
+        </button>
+    </div>
+</body>
+
+</html>

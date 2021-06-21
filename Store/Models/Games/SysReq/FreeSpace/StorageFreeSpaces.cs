@@ -10,6 +10,6 @@ namespace Store
     public partial class StorageFreeSpaces
     {
         public long Id { get; set; }
-        public long? FreeSpaceMb { get; set; }
+        public long/*?*/ FreeSpaceMb { get; set; }
     }
 }
